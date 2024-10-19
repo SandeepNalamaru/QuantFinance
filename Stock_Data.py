@@ -4,6 +4,7 @@ import yfinance as yf
 import streamlit as st
 import datetime
 
+
 st.markdown(
     """
     <style>
@@ -23,12 +24,10 @@ st.markdown(
     
 
 st.title('Stock Research')
-st.subheader('Enter Ticker in the Sidebar')
 st.subheader('~ Made by Sandeep Nalamaru')
-tabs = st.tabs(['Technicals', 'Fundamentals', 'Options'])
+tabs = st.tabs(['Technicals', 'Fundamentals', 'Options', 'Backtesting'])
 
 with st.sidebar:
-    ticker = []
     ticker = st.text_input('Enter Ticker')
     #rfr = st.number_input('Enter Risk Free Rate', value = 0.03)
     
@@ -52,8 +51,6 @@ with tabs[0]:
         with col1:
             st.write(avgret_text)
             st.write(std_text)
-        
-        
         
         
         benchmark = yf.download(bench, start=start_date)['Adj Close']
@@ -164,5 +161,27 @@ with tabs[2]:
         iv = pd.concat([puts, calls], axis=1)
         st.line_chart(iv)
         
-    
-    
+with tabs[3]:
+    st.selectbox("Choose your Strat", ['Mean Reversion', 'Momentum'])
+    if ticker:
+        start_date1 = st.date_input('Please Enter Start Date', value=datetime.date.today()-datetime.timedelta(days=365))
+        data1 = yf.download(ticker, start=start_date1, end=datetime.date.today())['Adj Close']
+        data_bt = data1.to_frame()
+        window = st.number_input('Moving Average Length', value=20)
+        data_bt['Moving Average'] = data_bt['Adj Close'].rolling(window=window).mean()
+        
+        st.line_chart(data_bt)
+        data_bt['Signal'] = 0
+        data_bt['Signal'][window:] = np.where(data_bt['Adj Close'][window:] < data_bt['Moving Average'][window:], 1, 0)
+        data_bt['Position'] = data_bt['Signal'].diff()
+        data_bt['Stock Returns'] = data_bt['Adj Close'].pct_change()
+        data_bt['Trade Returns'] = data_bt['Position']*data_bt['Stock Returns'].shift(-1)
+        total_return = round(((data_bt['Trade Returns'].sum())*100),2)
+        number_of_trades = (data_bt['Position']!=0).sum()
+        tot_ret_text = f"Trade Returns: {total_return}%"
+        trades_text = f"Number of Trades: {number_of_trades}"
+        
+        
+        st.write(tot_ret_text)
+        st.write(trades_text)
+        st.dataframe(data_bt)
