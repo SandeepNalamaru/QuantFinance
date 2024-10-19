@@ -4,7 +4,6 @@ import yfinance as yf
 import streamlit as st
 import datetime
 
-#CSS:::
 st.markdown(
     """
     <style>
@@ -24,6 +23,7 @@ st.markdown(
     
 
 st.title('Stock Research')
+st.subheader('Enter Ticker in the Sidebar')
 st.subheader('~ Made by Sandeep Nalamaru')
 tabs = st.tabs(['Technicals', 'Fundamentals', 'Options'])
 
