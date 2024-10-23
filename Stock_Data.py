@@ -166,7 +166,7 @@ with tabs[3]:
     if ticker:
         start_date1 = st.date_input('Please Enter Start Date', value=datetime.date.today()-datetime.timedelta(days=365))
         data1 = yf.download(ticker, start=start_date1, end=datetime.date.today())['Adj Close']
-        data_bt = data1.to_frame()
+        '''data_bt = data1.to_frame()
         window = st.number_input('Moving Average Length', value=20)
         data_bt['Moving Average'] = data_bt['Adj Close'].rolling(window=window).mean()
         
