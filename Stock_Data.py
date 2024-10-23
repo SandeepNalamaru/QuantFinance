@@ -184,4 +184,4 @@ with tabs[3]:
         
         st.write(tot_ret_text)
         st.write(trades_text)
-        st.dataframe(data_bt)
+        st.dataframe(data_bt)'''
