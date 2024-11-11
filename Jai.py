@@ -69,12 +69,12 @@ if util and travel and months and sub_rent:
     
     Cum_858_rent = df1.iloc[7, df1.columns.get_loc('Cumulative_858')]
     Cum_new_rent = df1.iloc[7, df1.columns.get_loc('Cumulative_New_house')]
-    Diff = Cum_858_rent - Cum_new_rent
+    Diff = round(Cum_858_rent - Cum_new_rent,2)
     conclusion = f"the difference in rent between 858 and New House: ${Diff}"
     st.subheader(conclusion)
     
     move_in = st.number_input('Potential Move-in costs', value = 15)
-    diff1 = Diff-move_in
+    diff1 = round(Diff-move_in,2)
     conclusion1 = f"the difference in rent between 858 and New House: ${diff1}"
     st.header(conclusion1)
         
