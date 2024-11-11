@@ -13,7 +13,7 @@ with st.sidebar:
     rent_858 = st.number_input('Enter current rent', value = 1290)
     rent_new = st.number_input('Enter New Rent',  value = 500)
     
-if util and travel and months and sub_rent:
+if util and travel and sub_rent:
     travel_cost = (2.4*travel*2)+(2.4*4*4)
     cost_sublet = (rent_858 - sub_rent)*months
     rent_new_total = rent_new + travel_cost + util
