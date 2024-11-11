@@ -11,7 +11,7 @@ with st.sidebar:
     months = st.slider('Number of sublet months', value = 3,max_value=7)
     sub_rent = st.number_input('Sublet Rent in 858', value = 700)
     rent_858 = st.number_input('Enter current rent', value = 1290)
-    rent_new = st.number_input('Enter New Rent'),  value = 500)
+    rent_new = st.number_input('Enter New Rent',  value = 500)
     
 if util and travel and months and sub_rent:
     travel_cost = (2.4*travel*2)+(2.4*4*4)
