@@ -33,9 +33,9 @@ if util:
     
     
     
-    months = st.slider('Number of sublet months', value = 3,max_value=7)
-    living_months = 8 - months
-    sublet_months = int(months)
+    Months = st.slider('Number of sublet months', value = 3,max_value=7)
+    living_months = 8 - Months
+    sublet_months = int(Months)
     
     old_house_sublet_rent =0   
     old_house_agree = st.checkbox("You get a sublet in Current House")
