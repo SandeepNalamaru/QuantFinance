@@ -33,7 +33,7 @@ if util:
     
     
     
-    Months = st.slider('Number of sublet months', value = 3,max_value=7)
+    Months = st.slider('Number of sublet months', value = 3,max_value=8)
     living_months = 8 - Months
     sublet_months = int(Months)
     
