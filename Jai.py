@@ -15,14 +15,7 @@ with st.sidebar:
     new_travel_cost = st.number_input('New Travel Cost per week', value=20)
     
     
-    months = st.slider('Number of sublet months', value = 3,max_value=7)
-    
-    
 if util:
-    
-
-    living_months = 8 - months
-    sublet_months = int(months)
     
     rent_new_total = rent_new + new_travel_cost*4 + util
     rent_858_new = rent_858 + current_util + travel_cost*4
@@ -40,7 +33,10 @@ if util:
     
     
     
-
+    months = st.slider('Number of sublet months', value = 3,max_value=7)
+    living_months = 8 - months
+    sublet_months = int(months)
+    
     old_house_sublet_rent =0   
     old_house_agree = st.checkbox("You get a sublet in Current House")
     
