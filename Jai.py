@@ -96,7 +96,7 @@ if util:
     
     move_in = st.number_input('Potential Move-in costs', value = 50)
     diff1 = Diff-move_in
-    conclusion1 = f"the difference in rent between Old and New House: ${diff1}"
+    conclusion1 = f"Total Savings (+ve)/ Loss (-ve): ${diff1}"
     st.header(conclusion1)
     
     more = st.checkbox("Want more?")
