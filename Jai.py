@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-st.title("Why you should/shouldn't move out in Jan")
+st.title("Why AdiSubz should/shouldn't move out in Jan")
 st.subheader('Use sidebar to change inputs <<<')
 
 with st.sidebar:
@@ -28,7 +28,7 @@ if util:
     st.bar_chart(df)
     
     
-    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
+    months = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar']
     
     
     
