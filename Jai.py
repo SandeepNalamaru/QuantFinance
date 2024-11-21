@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-st.title("Why AdiSubz should/shouldn't move out in Jan")
+st.title("Why AdiSubz should/shouldn't move out in August")
 st.subheader('Use sidebar to change inputs <<<')
 
 with st.sidebar:
@@ -59,7 +59,7 @@ if util:
     else:
         rent_new_sublet_months = [rent_new]*sublet_months
     
-    rent_new_living_months = [rent_new_total]*living_months 
+    rent_new_living_months = [rent_new_total]*living_months
     rent_new_final = rent_new_living_months + rent_new_sublet_months
 
     
