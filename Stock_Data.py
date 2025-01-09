@@ -14,7 +14,7 @@ st.markdown(
     }
     
     h3 {
-        font-size: 80%;
+        font-size: 65%;
     }
     
     </style>
@@ -25,6 +25,7 @@ st.markdown(
 
 st.title('Stock Research')
 st.subheader('~ Made by Sandeep Nalamaru')
+st.subheader('Use the sidebar to choose a stock that you are interested in. Use the tools in the website to compare it with a benchmark or another company')
 tabs = st.tabs(['Technicals', 'Fundamentals', 'Options', 'Backtesting'])
 
 with st.sidebar:
