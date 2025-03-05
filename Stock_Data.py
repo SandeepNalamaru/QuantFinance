@@ -25,7 +25,7 @@ st.markdown(
 
 st.title('Stock Research')
 st.subheader('~ Made by Sandeep Nalamaru')
-st.subheader('Use the sidebar to choose a stock that you are interested in. Use the tools in the website to compare it with a benchmark or another company')
+st.subheader('Site under re-construction (yfinance is not free anymore) :(')
 tabs = st.tabs(['Technicals', 'Fundamentals', 'Options', 'Backtesting'])
 
 with st.sidebar:
